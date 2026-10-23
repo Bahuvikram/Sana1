@@ -924,6 +924,20 @@ p {
     transition: .3s;
 }
 
+.playlist-player {
+    position: relative;
+    margin-top: 22px;
+    padding: 18px 20px;
+    border: 1px solid #f1cfdd;
+    border-radius: 18px;
+    background: linear-gradient(145deg, #fff, #fff1f6);
+    box-shadow: 0 10px 25px #9c526515;
+}
+
+.playlist-player audio { display: block; width: 100%; }
+.playlist-status { position: relative; margin: 10px 0 0; color: #77213e; font-size: 14px; }
+.song-button { cursor: pointer; border: 0; }
+
 .song-button:hover {
     transform: scale(1.05);
 }
@@ -1618,9 +1632,7 @@ footer {
 
                 <a
                     class="song-button"
-                    href="https://www.youtube.com/results?search_query=The+Weeknd+Lana+Del+Rey+Stargirl+Interlude"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#" data-audio="music/The_Weeknd_-_Stargirl_Interlude_feat._Lana.mp3"
                 >
                     Play Song 🌙 ↗
                 </a>
@@ -1645,9 +1657,7 @@ footer {
 
                 <a
                     class="song-button"
-                    href="https://www.youtube.com/results?search_query=Sabrina+Carpenter+Espresso"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#" data-audio="music/Espresso.mp3"
                 >
                     Play Song 💅🏻 ↗
                 </a>
@@ -1671,9 +1681,7 @@ footer {
 
                 <a
                     class="song-button"
-                    href="https://www.youtube.com/results?search_query=The+Ronettes+Be+My+Baby"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#" data-audio="music/Ronetts_-_Be_my_Baby_.mp3"
                 >
                     Play Song 🎀 ↗
                 </a>
@@ -1698,9 +1706,7 @@ footer {
 
                 <a
                     class="song-button"
-                    href="https://www.youtube.com/results?search_query=Made+in+Japan+song"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#" data-audio="music/V6_-_MADE_IN_JAPAN_(mp3.pm).mp3"
                 >
                     Play Song 🌸 ↗
                 </a>
@@ -1725,15 +1731,20 @@ footer {
 
                 <a
                     class="song-button"
-                    href="https://www.youtube.com/results?search_query=Ed+Sheeran+Perfect"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#" data-audio="music/Edd_Sheeran_-_Perfect_(mp3.pm).mp3"
                 >
                     Play Song 🥹 ↗
                 </a>
 
             </article>
 
+        </div>
+
+        <div class="playlist-player" aria-label="Playlist audio player">
+            <audio id="playlistAudio" controls preload="none">
+                Your browser does not support HTML5 audio.
+            </audio>
+            <p id="playlistStatus" class="playlist-status" aria-live="polite">Choose a song to start listening.</p>
         </div>
 
         <div class="quote card reveal" style="margin-top:30px;">
@@ -1755,81 +1766,7 @@ footer {
 
                 
 
-    <!-- PHOTO GALLERY -->
-
-    <section>
-
-        <div class="container">
-
-            <div class="center reveal">
-
-                <span class="tag">Her little corner</span>
-
-                <h2>Sana's memories 🌸</h2>
-
-                <p>
-                    A few pictures that remind me of you, Sana.
-                    From your smile to the little things that make you
-                    special, these are just a few of my favourite memories.
-
-            </div>
-
-            <div class="photos">
-
-                <div class="photo-card card reveal">
-
-                    <img class="photo"
-                         src="images/kitty-1.jpg"
-                         alt="Sana photo 1">
-
-                    <div class="photo-caption">
-                        A favourite picture 🌷
-                    </div>
-
-                </div>
-
-                <div class="photo-card card reveal">
-
-                    <img class="photo"
-                         src="images/kitty-2.jpg"
-                         alt="Sana photo 2">
-
-                    <div class="photo-caption">
-                        Her smile ✨
-                    </div>
-
-                </div>
-
-                <div class="photo-card card reveal">
-
-                    <img class="photo"
-                         src="images/kitty-3.jpg"
-                         alt="Sana photo 3">
-
-                    <div class="photo-caption">
-                        A special memory 🌸
-                    </div>
-
-                </div>
-
-                <div class="photo-card card reveal">
-
-                    <img class="photo"
-                         src="images/kitty-4.jpg"
-                         alt="Sana photo 4">
-
-                    <div class="photo-caption">
-                        Another little memory 🤍
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
+  
     <!-- PERSONAL LETTER -->
 
     <section>
@@ -2418,6 +2355,44 @@ $("wishButton").addEventListener("click", () => {
 
     }, 600);
 
+});
+
+// Local HTML5 playlist playback. The shared audio element keeps one song active at a time.
+const playlistAudio = document.getElementById("playlistAudio");
+const playlistStatus = document.getElementById("playlistStatus");
+
+document.querySelectorAll(".song-button[data-audio]").forEach((button) => {
+    button.addEventListener("click", async (event) => {
+        event.preventDefault();
+        const source = button.dataset.audio;
+        const songName = button.closest(".song-card").querySelector("h3").textContent.trim();
+        const isSameSong = playlistAudio.getAttribute("src") === source;
+
+        if (isSameSong && !playlistAudio.paused) {
+            playlistAudio.pause();
+            return;
+        }
+
+        if (!isSameSong) {
+            playlistAudio.src = source;
+            playlistAudio.load();
+        }
+
+        try {
+            await playlistAudio.play();
+            playlistStatus.textContent = "Now playing: " + songName;
+        } catch (error) {
+            playlistStatus.textContent = "Unable to play this song. Please try again.";
+        }
+    });
+});
+
+playlistAudio.addEventListener("pause", () => {
+    if (playlistAudio.currentSrc) playlistStatus.textContent = "Paused";
+});
+
+playlistAudio.addEventListener("ended", () => {
+    playlistStatus.textContent = "Song finished. Choose another song to play.";
 });
 </script>
 
