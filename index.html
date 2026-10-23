@@ -1,0 +1,2425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Sana 💗 | A Friendship Forever</title>
+
+<style>
+/* ==========================================
+   1. GLOBAL STYLES
+========================================== */
+
+:root {
+    --pink: #c13d66;
+    --dark-pink: #681b35;
+    --cream: #fffaf7;
+    --text: #754354;
+    --light-pink: #ffe6ef;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, serif;
+    color: var(--text);
+    background: #fff7f5;
+    overflow-x: hidden;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+section {
+    padding: 75px 0;
+}
+
+.container {
+    width: min(1000px, 92%);
+    margin: auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.center {
+    text-align: center;
+}
+
+h1 {
+    color: #a93257;
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #92324f;
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #92324f;
+    margin-bottom: 12px;
+}
+
+p {
+    line-height: 1.85;
+    margin-bottom: 16px;
+}
+
+.card {
+    background: rgba(255, 255, 255, .88);
+    border: 1px solid #f4d4df;
+    border-radius: 24px;
+    box-shadow: 0 18px 55px #9c52651c;
+    backdrop-filter: blur(12px);
+}
+
+.tag {
+    display: inline-block;
+    padding: 9px 15px;
+    background: #ffedf3;
+    color: #a33d5c;
+    border-radius: 50px;
+    font: bold 12px Arial, sans-serif;
+    letter-spacing: 1px;
+}
+
+.btn {
+    border: 0;
+    border-radius: 50px;
+    padding: 16px 25px;
+    color: white;
+    background: linear-gradient(115deg, #c13d66, #64182f);
+    font: bold 16px Arial, sans-serif;
+    box-shadow: 0 10px 24px #9b29483b;
+    transition: .3s;
+}
+
+.btn:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 15px 30px #9b29484b;
+}
+
+.btn-light {
+    background: white;
+    color: #a33357;
+    border: 1px solid #f1c8d7;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+/* ==========================================
+   2. 3D-STYLE ANIMATED BACKGROUND
+========================================== */
+
+#background {
+    position: fixed;
+    inset: 0;
+    z-index: -5;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 20% 20%, #ffdce8, transparent 45%),
+        radial-gradient(ellipse at 80% 80%, #e4d9ff, transparent 45%),
+        linear-gradient(135deg, #fffaf5, #fff0f6);
+    perspective: 1000px;
+}
+
+.orb {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    opacity: .4;
+    filter: blur(2px);
+    box-shadow: inset -20px -20px 60px #ffffff70,
+                0 0 80px #edabc5;
+    animation: orbMove 12s ease-in-out infinite alternate;
+}
+
+.orb.one {
+    background: radial-gradient(circle at 30% 25%, white, #ef9fbd 55%, #c67dbb);
+    top: 10%;
+    left: -100px;
+}
+
+.orb.two {
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle at 30% 25%, white, #c9b8f4 55%, #e2a8d0);
+    right: -130px;
+    bottom: 10%;
+    animation-delay: -5s;
+}
+
+.orb.three {
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle at 30% 25%, white, #ffb9d0, #e58cae);
+    left: 45%;
+    top: 55%;
+    animation-delay: -8s;
+}
+
+@keyframes orbMove {
+    0% {
+        transform: translate3d(0, 0, -100px) rotateX(0deg) scale(.9);
+    }
+
+    50% {
+        transform: translate3d(100px, -80px, 100px) rotateX(35deg) scale(1.2);
+    }
+
+    100% {
+        transform: translate3d(-50px, 80px, -50px) rotateY(50deg) scale(1);
+    }
+}
+
+/* ==========================================
+   3. CONTINUOUS BUTTERFLIES
+========================================== */
+
+#butterflies {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.butterfly {
+    position: absolute;
+    left: -70px;
+    top: var(--top);
+    font-size: var(--size);
+    filter: drop-shadow(0 5px 8px #c04d7655);
+    animation: butterflyFly var(--duration) linear var(--delay) infinite;
+}
+
+.butterfly span {
+    display: block;
+    animation: wingFlap .25s ease-in-out infinite alternate;
+}
+
+@keyframes wingFlap {
+    from {
+        transform: scaleX(.4) rotate(-15deg);
+    }
+
+    to {
+        transform: scaleX(1) rotate(15deg);
+    }
+}
+
+@keyframes butterflyFly {
+    0% {
+        transform: translate(0, 0) rotate(-15deg);
+        opacity: 0;
+    }
+
+    8% {
+        opacity: 1;
+    }
+
+    25% {
+        transform: translate(25vw, -12vh) rotate(15deg);
+    }
+
+    45% {
+        transform: translate(48vw, 10vh) rotate(-12deg);
+    }
+
+    65% {
+        transform: translate(70vw, -16vh) rotate(20deg);
+    }
+
+    85% {
+        transform: translate(90vw, 8vh) rotate(-15deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(115vw, -8vh) rotate(15deg);
+        opacity: 0;
+    }
+}
+
+/* ==========================================
+   4. LOGIN PAGE
+========================================== */
+
+#loginScreen {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    overflow-y: auto;
+    background: #fff8f4;
+    transition: opacity .8s, visibility .8s;
+}
+
+#loginScreen::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(#e6a6b8 1px, transparent 1.5px);
+    background-size: 28px 28px;
+    opacity: .5;
+}
+
+.login-card {
+    width: min(420px, 100%);
+    position: relative;
+    padding: 38px 30px 30px;
+    text-align: center;
+    background: #fffdfb;
+    border: 2px solid #f8e1e8;
+    border-radius: 17px;
+    box-shadow: 0 16px 38px #a85c6920;
+    animation: loginFloat 5s ease-in-out infinite;
+}
+
+@keyframes loginFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+.tape {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-1deg);
+    width: 82px;
+    height: 24px;
+    background: #f0dca2e0;
+    clip-path: polygon(4% 0, 96% 0, 100% 100%, 0 100%);
+}
+
+.seal {
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 10px;
+    background: linear-gradient(145deg, #c64c70, #78243f);
+    color: #ffe5c9;
+    font-size: 30px;
+    font-style: italic;
+    border: 2px dotted #f6c8d5;
+    box-shadow: 0 5px 12px #77314845;
+}
+
+.login-title {
+    font-size: clamp(2.7rem, 10vw, 3.5rem);
+    font-style: italic;
+    letter-spacing: -2px;
+    color: #bd3d62;
+    margin-bottom: 12px;
+}
+
+.heart {
+    display: inline-block;
+    animation: heartbeat 1.3s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.25);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+}
+
+.login-sub {
+    font-style: italic;
+    color: #a1848b;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.login-label {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 19px;
+    color: #733145;
+    margin-bottom: 20px;
+}
+
+.password-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 2px solid #fae2e9;
+    border-radius: 50px;
+    padding: 0 18px;
+    height: 54px;
+    background: white;
+    margin-bottom: 14px;
+    transition: .3s;
+}
+
+.password-wrap:focus-within {
+    border-color: #e7a5b8;
+    box-shadow: 0 0 0 4px #f8dce65c;
+}
+
+.password-wrap input {
+    width: 100%;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    text-align: center;
+    color: #6b3748;
+    background: transparent;
+    font: 16px Arial, sans-serif;
+}
+
+.login-button {
+    width: 100%;
+    min-height: 52px;
+}
+
+.stamp {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 9px 14px;
+    border: 2px dashed #d84769;
+    color: #cb4967;
+    font: bold 12px Georgia, serif;
+    letter-spacing: 2px;
+    transform: rotate(-2deg);
+}
+
+#loginError {
+    color: #c13258;
+    font: 13px Arial, sans-serif;
+    min-height: 18px;
+    margin-top: 8px;
+}
+
+#loginScreen.closed {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.shake {
+    animation: shake .35s !important;
+}
+
+@keyframes shake {
+    25% { translate: -7px 0; }
+    50% { translate: 7px 0; }
+    75% { translate: -4px 0; }
+}
+
+/* ==========================================
+   5. WARNING POPUP
+========================================== */
+
+.warning-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 22px;
+    background: rgba(74, 24, 46, .45);
+    backdrop-filter: blur(12px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s, visibility .5s;
+}
+
+.warning-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.warning-card {
+    position: relative;
+    width: min(430px, 100%);
+    padding: 35px 25px;
+    text-align: center;
+    background: linear-gradient(145deg, #fffafd, #ffe7f0);
+    border: 2px solid #f5c0d4;
+    border-radius: 28px;
+    box-shadow: 0 25px 80px #5b183c45;
+    transform: scale(.65) rotate(-5deg);
+    transition: transform .6s cubic-bezier(.2, 1.5, .4, 1);
+    overflow: hidden;
+}
+
+.warning-overlay.active .warning-card {
+    transform: scale(1) rotate(0);
+}
+
+.warning-icon {
+    font-size: 65px;
+    display: inline-block;
+    animation: warningBounce 1.2s ease-in-out infinite;
+}
+
+.warning-card h2 {
+    margin: 15px 0;
+    font-size: 27px;
+    color: #b22e5b;
+}
+
+.warning-card p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #754052;
+}
+
+.warning-card .btn {
+    margin-top: 12px;
+}
+
+.warning-sparkle {
+    position: absolute;
+    pointer-events: none;
+    animation: sparkleFloat 3s ease-in-out infinite;
+}
+
+@keyframes warningBounce {
+    0%, 100% {
+        transform: translateY(0) rotate(-8deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(8deg);
+    }
+}
+
+@keyframes sparkleFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0);
+        opacity: .4;
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(25deg);
+        opacity: 1;
+    }
+}
+
+/* ==========================================
+   6. BIRTHDAY CANDLES
+========================================== */
+
+#candleScreen {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+}
+
+.candle-card {
+    padding: 40px 24px;
+}
+
+.candles {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    gap: clamp(12px, 4vw, 34px);
+    padding: 45px 0 25px;
+}
+
+.candle {
+    position: relative;
+    width: 42px;
+    height: 110px;
+    border: 0;
+    border-radius: 8px 8px 5px 5px;
+    background: repeating-linear-gradient(
+        135deg,
+        #fff1d9 0 10px,
+        #f2b9c9 10px 20px
+    );
+    box-shadow: inset -6px 0 8px #a7515a20;
+    transition: .3s;
+}
+
+.flame {
+    position: absolute;
+    top: -38px;
+    left: 10px;
+    width: 23px;
+    height: 33px;
+    border-radius: 55% 45% 55% 45%;
+    background: radial-gradient(
+        ellipse at 50% 70%,
+        #fff7ba 0 18%,
+        #ffc45b 35%,
+        #ff8057 70%,
+        transparent 72%
+    );
+    filter: drop-shadow(0 0 10px #ffb34f);
+    animation: flameMove .55s infinite alternate;
+}
+
+@keyframes flameMove {
+    to {
+        transform: rotate(8deg) scale(.85);
+        filter: drop-shadow(0 0 16px #ffb34f);
+    }
+}
+
+.candle.out .flame {
+    display: none;
+}
+
+.candle.out {
+    opacity: .6;
+    transform: scaleY(.97);
+}
+
+.candle.out::after {
+    content: "";
+    position: absolute;
+    top: -25px;
+    left: 14px;
+    width: 14px;
+    height: 25px;
+    background: linear-gradient(transparent, #c6aab6aa, transparent);
+    animation: smoke 1.2s forwards;
+}
+
+@keyframes smoke {
+    to {
+        transform: translateY(-28px) scale(1.7);
+        opacity: 0;
+    }
+}
+
+#exploreButton {
+    display: none;
+    margin: 15px auto 0;
+}
+
+#exploreButton.show {
+    display: inline-block;
+    animation: pop .5s;
+}
+
+@keyframes pop {
+    from {
+        transform: scale(.6);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* MESSAGE AFTER CANDLES */
+
+.candle-reveal {
+    max-width: 750px;
+    margin: 25px auto 0;
+    padding: 28px 22px;
+    border-radius: 24px;
+    border: 2px solid #f3c4d5;
+    background: linear-gradient(135deg, #fff8fb, #ffe6ef, #fffaf5);
+    box-shadow: 0 15px 45px #b747701c;
+    opacity: 0;
+    transform: translateY(30px) scale(.85);
+    transition: opacity .8s ease, transform .8s cubic-bezier(.2, 1.3, .4, 1);
+}
+
+.candle-reveal.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.candle-reveal .message-emoji {
+    display: block;
+    font-size: 42px;
+    margin-bottom: 12px;
+    animation: teddyWiggle 2s ease-in-out infinite;
+}
+
+.candle-reveal p {
+    font-size: clamp(17px, 3vw, 21px);
+    line-height: 1.9;
+    color: #853550;
+}
+
+.candle-reveal strong {
+    color: #bb315e;
+}
+
+@keyframes teddyWiggle {
+    0%, 100% {
+        transform: rotate(-8deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(8deg) scale(1.1);
+    }
+}
+
+/* ==========================================
+   7. WEBSITE CONTENT
+========================================== */
+
+.hero {
+    min-height: 75vh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+}
+
+.hero p {
+    max-width: 720px;
+    margin: 20px auto;
+    font-size: 1.08rem;
+}
+
+.flower {
+    display: block;
+    font-size: 4rem;
+    animation: bob 3s ease-in-out infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes bob {
+    50% {
+        transform: translateY(-12px) rotate(8deg);
+    }
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 28px;
+}
+
+.story {
+    padding: 28px;
+    transition: transform .3s;
+}
+
+.story:hover {
+    transform: translateY(-6px);
+}
+
+.story .icon {
+    font-size: 2.4rem;
+    margin-bottom: 12px;
+}
+
+.letter {
+    padding: 35px;
+    margin-top: 25px;
+}
+
+.quote {
+    padding: 35px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.quote p {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: #93435e;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity .8s, transform .8s;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* ==========================================
+   8. BIRTHDAY COUNTDOWN
+========================================== */
+
+.countdown {
+    padding: 35px;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.count-grid {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.count-unit {
+    min-width: 75px;
+    padding: 14px 10px;
+    border-radius: 15px;
+    background: #fff0f5;
+    border: 1px solid #f3d3de;
+}
+
+.count-unit strong {
+    display: block;
+    font: bold 28px Arial, sans-serif;
+    color: #a83357;
+}
+
+.count-unit small {
+    font: 12px Arial, sans-serif;
+}
+
+/* ==========================================
+   9. PHOTO GALLERY
+========================================== */
+
+.photos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.photo-card {
+    padding: 10px;
+    overflow: hidden;
+}
+
+.photo {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #f8dce7, #e7ddf5);
+}
+
+.photo-caption {
+    text-align: center;
+    padding: 15px 4px 5px;
+    font-weight: bold;
+}
+
+/* ==========================================
+   10. FIVE-SONG PLAYLIST
+========================================== */
+
+.playlist {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 30px;
+    text-align: left;
+}
+
+.song-card {
+    position: relative;
+    padding: 22px;
+    border: 1px solid #f1cfdd;
+    border-radius: 22px;
+    background: linear-gradient(145deg, #fff, #fff1f6);
+    box-shadow: 0 10px 25px #9c526515;
+    transition: transform .35s, box-shadow .35s;
+    overflow: hidden;
+}
+
+.song-card::before {
+    content: "";
+    position: absolute;
+    top: -45px;
+    right: -45px;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: #f7d8e550;
+}
+
+.song-card:hover {
+    transform: translateY(-7px) rotate(-1deg);
+    box-shadow: 0 18px 35px #9c526530;
+}
+
+.song-mood {
+    display: inline-block;
+    font: bold 11px Arial, sans-serif;
+    letter-spacing: 1px;
+    color: #a83a60;
+    background: #ffe1ec;
+    padding: 7px 10px;
+    border-radius: 30px;
+    margin-bottom: 13px;
+}
+
+.song-card h3 {
+    position: relative;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.song-card p {
+    position: relative;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.song-button {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    padding: 11px 17px;
+    border-radius: 30px;
+    background: linear-gradient(120deg, #c13d66, #77213e);
+    color: white;
+    font: bold 13px Arial, sans-serif;
+    box-shadow: 0 7px 18px #9b29482a;
+    transition: .3s;
+}
+
+.song-button:hover {
+    transform: scale(1.05);
+}
+
+.song-card:nth-child(2) {
+    background: linear-gradient(145deg, #fff8ef, #ffe5d2);
+}
+
+.song-card:nth-child(3) {
+    background: linear-gradient(145deg, #fff8fd, #f2e3ff);
+}
+
+.song-card:nth-child(4) {
+    background: linear-gradient(145deg, #f8fffc, #dff8ef);
+}
+
+.song-card:nth-child(5) {
+    background: linear-gradient(145deg, #fffaf3, #f9e5d2);
+    grid-column: 1 / -1;
+}
+
+/* ==========================================
+   11. FINAL BIRTHDAY WISH
+========================================== */
+
+.wish {
+    padding: 45px 24px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.wish-message {
+    display: none;
+    margin: 25px auto 0;
+    padding: 24px 18px;
+    border-radius: 20px;
+    background: #fff0f5;
+    color: #ad3156;
+    font-size: clamp(1.3rem, 4vw, 2rem);
+    font-weight: bold;
+    line-height: 1.6;
+    animation: pop .5s;
+    max-width: 700px;
+}
+
+.wish-message.show {
+    display: block;
+}
+
+footer {
+    text-align: center;
+    padding: 45px 15px;
+    background: #ffeaf1aa;
+}
+
+/* PARTICLE EXPLOSIONS */
+
+.burst {
+    position: fixed;
+    pointer-events: none;
+    z-index: 2000;
+    will-change: transform, opacity;
+    animation: burstFly var(--duration) cubic-bezier(.15, .65, .25, 1) forwards;
+}
+
+@keyframes burstFly {
+    0% {
+        transform: translate(0, 0) scale(.3) rotate(0);
+        opacity: 0;
+    }
+
+    12% {
+        opacity: 1;
+        transform: translate(var(--x1), var(--y1)) scale(1.2) rotate(80deg);
+    }
+
+    100% {
+        transform: translate(var(--x2), var(--y2)) scale(.6) rotate(450deg);
+        opacity: 0;
+    }
+}
+
+/* ==========================================
+   12. RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 650px) {
+    section {
+        padding: 55px 0;
+    }
+
+    .login-card {
+        padding: 32px 22px 25px;
+    }
+
+    .login-title {
+        letter-spacing: -1.5px;
+    }
+
+    .stamp {
+        margin-top: 24px;
+        font-size: 10px;
+        letter-spacing: 1.4px;
+    }
+
+    .story-grid,
+    .photos,
+    .playlist {
+        grid-template-columns: 1fr;
+    }
+
+    .song-card:nth-child(5) {
+        grid-column: auto;
+    }
+
+    .photo {
+        height: 280px;
+    }
+
+    .letter {
+        padding: 25px 20px;
+    }
+
+    .candle {
+        width: 32px;
+        height: 90px;
+    }
+
+    .flame {
+        left: 5px;
+    }
+
+    .hero {
+        min-height: 70vh;
+    }
+}
+
+@media (max-height: 700px) {
+    .login-card {
+        padding-top: 25px;
+        padding-bottom: 20px;
+    }
+
+    .login-sub {
+        margin-bottom: 17px;
+    }
+
+    .login-label {
+        margin-bottom: 13px;
+    }
+
+    .stamp {
+        margin-top: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+
+<div id="background">
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+    <div class="orb three"></div>
+</div>
+
+<div id="butterflies" aria-hidden="true"></div>
+
+<!-- ==========================================
+     LOGIN PAGE
+========================================== -->
+
+<div id="loginScreen">
+
+    <div class="login-card" id="loginCard">
+
+        <div class="tape"></div>
+
+        <div class="seal">S</div>
+
+        <h1 class="login-title">
+            Hey Sana... <span class="heart">💗</span>
+        </h1>
+
+        <p class="login-sub">
+            Before you enter, there's a little secret waiting just for you.
+        </p>
+
+        <div class="login-label">
+            Enter the secret password 💌
+        </div>
+
+        <label class="password-wrap">
+            <span>🔐</span>
+
+            <input
+                id="password"
+                type="password"
+                placeholder="Type your password..."
+                autocomplete="off"
+                aria-label="Secret password"
+            >
+        </label>
+
+        <button class="btn login-button" id="loginButton">
+            Open my little world 💗
+        </button>
+
+        <div id="loginError" role="status"></div>
+
+        <div class="stamp">
+            FOR SANA ONLY · WITH LOVE
+        </div>
+
+    </div>
+
+</div>
+
+<!-- WARNING POPUP -->
+
+<div class="warning-overlay" id="warningOverlay">
+
+    <div class="warning-card">
+
+        <span class="warning-sparkle" style="top:15px;left:20px;">
+            ✨
+        </span>
+
+        <span class="warning-sparkle" style="top:35px;right:25px;">
+            💗
+        </span>
+
+        <div class="warning-icon">⚠️🎀</div>
+
+        <h2>ATTENTION PLEASE! 💅🏻</h2>
+
+        <p>
+            Warning ⚠️ A certified cute little menace has entered
+            the website. 🎀💅🏻 Proceed with caution!
+        </p>
+
+        <button class="btn" id="warningContinue">
+            Hehe, let me in! 💗
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     BIRTHDAY CANDLE PAGE
+========================================== -->
+
+<section id="candleScreen">
+
+    <div class="container">
+
+        <div class="candle-card card">
+
+            <span class="tag">
+                A birthday wish for you 🎂
+            </span>
+
+            <h2 style="margin-top:20px">
+                Make a little wish, Sana ✨
+            </h2>
+
+            <p>
+                Tap each candle to blow it out. Make a wish with all your heart. 🕯️
+            </p>
+
+            <div class="candles">
+
+                <button class="candle" aria-label="Blow out candle 1">
+                    <span class="flame"></span>
+                </button>
+
+                <button class="candle" aria-label="Blow out candle 2">
+                    <span class="flame"></span>
+                </button>
+
+                <button class="candle" aria-label="Blow out candle 3">
+                    <span class="flame"></span>
+                </button>
+
+                <button class="candle" aria-label="Blow out candle 4">
+                    <span class="flame"></span>
+                </button>
+
+                <button class="candle" aria-label="Blow out candle 5">
+                    <span class="flame"></span>
+                </button>
+
+            </div>
+
+            <p id="candleHint">
+                One gentle tap for each candle. 💗
+            </p>
+
+            <!-- PERSONAL MESSAGE -->
+
+            <div class="candle-reveal" id="candleReveal">
+
+                <span class="message-emoji">🧸💗😭</span>
+
+                <p>
+                    Behind that baddie attitude is my favourite little kid.
+                    <strong>Don't ever change, idiot.</strong>
+                    I hope I get to annoy you forever. 😭💗🧸
+                </p>
+
+                <div style="font-size:28px;margin-top:15px;">
+                    🦋 🎀 🌷 🤍 🫂
+                </div>
+
+            </div>
+
+            <button class="btn" id="exploreButton">
+                Explore your little world 🌷
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     MAIN WEBSITE
+========================================== -->
+
+<main id="mainContent" class="hidden">
+
+    <!-- WELCOME -->
+
+    <section class="hero">
+
+        <div class="container">
+
+            <span class="flower">🌷</span>
+
+            <span class="tag">
+                A little corner made for Sana
+            </span>
+
+            <h1>A friendship I hope lasts forever. ♡</h1>
+
+            <p>
+                Some people enter our lives unexpectedly and slowly become
+                people we never want to lose. I'm really glad our paths crossed.
+            </p>
+
+            <div class="actions">
+
+                <button class="btn" onclick="goTo('beginning')">
+                    Read our story ↓
+                </button>
+
+                <button class="btn btn-light" onclick="goTo('music')">
+                    Our song 🎶
+                </button>
+
+            </div>
+
+            <!-- BIRTHDAY COUNTDOWN -->
+
+            <div class="countdown card">
+
+                <span class="tag">
+                    Save the date 🎂
+                </span>
+
+                <h2 style="margin-top:18px">
+                    Countdown to October 24
+                </h2>
+
+                <p>
+                    Counting down to your special day, Sana.
+                    You deserve so much happiness. 💗
+                </p>
+
+                <div class="count-grid">
+
+                    <div class="count-unit">
+                        <strong id="days">--</strong>
+                        <small>Days</small>
+                    </div>
+
+                    <div class="count-unit">
+                        <strong id="hours">--</strong>
+                        <small>Hours</small>
+                    </div>
+
+                    <div class="count-unit">
+                        <strong id="minutes">--</strong>
+                        <small>Minutes</small>
+                    </div>
+
+                    <div class="count-unit">
+                        <strong id="seconds">--</strong>
+                        <small>Seconds</small>
+                    </div>
+
+                </div>
+
+                <p id="birthdayNote"></p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- HOW IT STARTED -->
+
+    <section id="beginning">
+
+        <div class="container">
+
+            <div class="center reveal">
+
+                <span class="tag">Where it began</span>
+
+                <h2>It started with one conversation</h2>
+
+                <p>
+                    One unexpected hello in Roblox, and then, somehow, you.
+                </p>
+
+            </div>
+
+            <div class="card letter reveal">
+
+                <p>
+                    I still find it lovely how something as simple as playing
+                    Roblox brought us together. You started the conversation,
+                    and neither of us knew where it would lead.
+                </p>
+
+                <p>
+                    Slowly, our conversations became something I looked forward
+                    to. A person I met online became someone I could talk to
+                    about my thoughts, my problems, my secrets, and all the
+                    random things that happen in a day.
+                </p>
+
+                <p>
+                    Somewhere along the way, this became a friendship I
+                    genuinely care about. I'm grateful you said hello. 🤍
+                </p>
+
+            </div>
+
+            <div class="quote card reveal">
+
+                <p>
+                    "I didn't expect to find a friendship I would care this much about."
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FRIENDSHIP -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="center reveal">
+
+                <span class="tag">Our friendship</span>
+
+                <h2>Someone I can be myself around</h2>
+
+            </div>
+
+            <div class="story-grid">
+
+                <article class="story card reveal">
+
+                    <div class="icon">🤍</div>
+
+                    <h3>Someone I can talk to</h3>
+
+                    <p>
+                        You are the person I can talk to about anything, whether it’s my happiest moments or the hardest days. With you, I never have to pretend to be okay. You listen without judging, understand without explaining, and make even my worst days feel a little brighter. Thank you for being my safe place. 💗
+                    </p>
+
+                </article>
+
+                <article class="story card reveal">
+
+                    <div class="icon">🔐</div>
+
+                    <h3>Someone I can trust</h3>
+
+                    <p>
+                        You are someone I can trust with my thoughts, feelings, and secrets without worrying about being judged. Knowing that I can count on you gives me a sense of peace that words can’t explain. No matter what life brings, I’m grateful to have someone like you who makes trust feel natural and friendship feel truly special.
+                    </p>
+
+                </article>
+
+                <article class="story card reveal">
+
+                    <div class="icon">😂</div>
+
+                    <h3>Someone I can be random with</h3>
+
+                    <p>
+                        You are someone I can be completely crazy with, talk about the most random things, laugh at silly jokes, and act weird without feeling embarrassed. With you, even the most meaningless conversations become precious memories. I love how I can be my unfiltered self around you, knowing you’ll match my energy and make every little moment unforgettable.
+                    </p>
+
+                </article>
+
+                <article class="story card reveal">
+
+                    <div class="icon">🌙</div>
+
+                    <h3>Someone I don't want to lose</h3>
+
+                    <p>
+                        You are someone I never want to lose, no matter how much life changes or how far apart we might grow. Our bond means more to me than words can explain. Even on days when things aren't perfect, I hope we always find our way back to each other, because having you in my life is something I never want to take for granted. 🫂
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- LONG DISTANCE -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="card letter center reveal">
+
+                <span style="font-size:3rem">🌎🤍🌎</span>
+
+                <br>
+
+                <span class="tag">Long-distance friendship</span>
+
+                <h2 style="margin-top:18px">
+                    Far away, but still close
+                </h2>
+
+                <p>
+                    No matter how many miles separate us, you will always have a special place in my heart. Distance may keep us from meeting whenever we want, but it can never change the bond we share. Even when you're far away, you still feel close to me in the little things, the memories, and every thought that reminds me of you. 🫂💗
+                </p>
+
+                <p>
+                    <strong>
+                        Until the day we can meet in person, I'll keep
+                        cheering for you from here.
+                    </strong>
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FRIENDSHIP PROMISES -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="center reveal">
+
+                <span class="tag">A few promises</span>
+
+                <h2>What I want you to know</h2>
+
+            </div>
+
+            <div class="story-grid">
+
+                <article class="story card reveal">
+
+                    <div class="icon">🫶</div>
+
+                    <h3>I'll be there</h3>
+
+                    <p>
+                        No matter what you're going through, remember that you don't have to face everything alone. I'll be there to listen when you need to talk, to make you laugh when you're feeling low, and to remind you how special you are when you forget it yourself. Even if I can't always be beside you, I'll always care. 🌷🦋🤍
+                    </p>
+
+                </article>
+
+                <article class="story card reveal">
+
+                    <div class="icon">🌧️</div>
+
+                    <h3>You can have bad days</h3>
+
+                    <p>
+                        You don't always have to be happy, strong, or pretend that everything is okay. It's completely fine to have bad days, feel lost, cry, or simply do nothing. You never have to hide your feelings from me. I'll remind you that even on your darkest days, you are loved, valued, and never a burden. 🌻🤍✨
+                    </p>
+
+                </article>
+
+                <article class="story card reveal">
+
+                    <div class="icon">🌱</div>
+
+                    <h3>I'll respect your space</h3>
+
+                    <p>
+                       I understand that sometimes you need time for yourself, and I'll always respect that. You don't have to explain everything or reply immediately to make me feel better. I'll give you the space you need without making you feel guilty. Just remember, whenever you're ready to talk again, I'll be here with the same care, love, and understanding. 🌷🫶🏻💗
+                    </p>
+
+                </article>
+
+                <article class="story card reveal">
+
+                    <div class="icon">♾️</div>
+
+                    <h3>I hope we stay</h3>
+
+                    <p>
+                        I hope we stay in each other's lives, even when things change and life gets busy. I hope we keep sharing our silly moments, random conversations, little secrets, and countless memories. No matter where life takes us, I hope our bond remains the same. Because honestly, you're someone I'd love to have around for a very, very long time. 🦋🤍🌷💗
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FIVE SONGS -->
+
+   <!-- ==========================================
+     SANA'S PERSONAL PLAYLIST 🎀
+========================================== -->
+
+<section id="music">
+
+    <div class="container">
+
+        <div class="center reveal">
+
+            <span class="tag">A playlist just for Sana 🎀</span>
+
+            <h2>Songs That Remind Me of You 💗</h2>
+
+            <p>
+                Five songs, five different vibes, and one special girl.
+                From your baddie era to the softest moments,
+                this little playlist is for you, Sana. 🎧🦋
+            </p>
+
+        </div>
+
+        <div class="playlist">
+
+            <!-- SONG 1 -->
+
+            <article class="song-card reveal">
+
+                <span class="song-mood">
+                    🖤 THE STARGIRL VIBE
+                </span>
+
+                <h3>Stargirl Interlude</h3>
+
+                <p>
+                    For your mysterious, pretty, main-character energy.
+                    You're literally in your own little universe, gurl. 🌌💋
+                </p>
+
+                <a
+                    class="song-button"
+                    href="https://www.youtube.com/results?search_query=The+Weeknd+Lana+Del+Rey+Stargirl+Interlude"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Play Song 🌙 ↗
+                </a>
+
+            </article>
+
+            <!-- SONG 2 -->
+
+            <article class="song-card reveal">
+
+                <span class="song-mood">
+                    💅🏻 BADDIE ERA
+                </span>
+
+                <h3>Espresso</h3>
+
+                <p>
+                    For the girl who knows she's iconic.
+                    A little attitude, a little sass, and a whole lot of
+                    main-character energy. 🎀✨
+                </p>
+
+                <a
+                    class="song-button"
+                    href="https://www.youtube.com/results?search_query=Sabrina+Carpenter+Espresso"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Play Song 💅🏻 ↗
+                </a>
+
+            </article>
+
+            <!-- SONG 3 -->
+
+            <article class="song-card reveal">
+
+                <span class="song-mood">
+                    💗 SOFT GIRL MOMENT
+                </span>
+
+                <h3>Be My Baby</h3>
+
+                <p>
+                    A little old-school sweetness for the soft,
+                    adorable side of you that deserves all the love. 🧸💕
+                </p>
+
+                <a
+                    class="song-button"
+                    href="https://www.youtube.com/results?search_query=The+Ronettes+Be+My+Baby"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Play Song 🎀 ↗
+                </a>
+
+            </article>
+
+            <!-- SONG 4 -->
+
+            <article class="song-card reveal">
+
+                <span class="song-mood">
+                    🎌 UNIQUE GIRL ENERGY
+                </span>
+
+                <h3>Made in Japan</h3>
+
+                <p>
+                    For your one-of-a-kind personality.
+                    Nobody could ever make another Sana. You're
+                    your own kind of special. 🦋💗
+                </p>
+
+                <a
+                    class="song-button"
+                    href="https://www.youtube.com/results?search_query=Made+in+Japan+song"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Play Song 🌸 ↗
+                </a>
+
+            </article>
+
+            <!-- SONG 5 -->
+
+            <article class="song-card reveal">
+
+                <span class="song-mood">
+                    🤍 OUR SOFTEST MOMENT
+                </span>
+
+                <h3>Perfect</h3>
+
+                <p>
+                    For the emotional side of this little friendship.
+                    No matter how far apart we are, I hope we keep making
+                    beautiful memories together. 🫂🥹
+                </p>
+
+                <a
+                    class="song-button"
+                    href="https://www.youtube.com/results?search_query=Ed+Sheeran+Perfect"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Play Song 🥹 ↗
+                </a>
+
+            </article>
+
+        </div>
+
+        <div class="quote card reveal" style="margin-top:30px;">
+
+            <p>
+                "Some songs match your vibe, some match your personality,
+                and some remind me how lucky I am to have you in my life." 💗
+            </p>
+
+            <span style="font-size:28px;">
+                🎧 🎀 🦋 🧸 🌷
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+                
+
+    <!-- PHOTO GALLERY -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="center reveal">
+
+                <span class="tag">Her little corner</span>
+
+                <h2>Sana's memories 🌸</h2>
+
+                <p>
+                    A few pictures that remind me of you, Sana.
+                    From your smile to the little things that make you
+                    special, these are just a few of my favourite memories.
+
+            </div>
+
+            <div class="photos">
+
+                <div class="photo-card card reveal">
+
+                    <img class="photo"
+                         src="images/kitty-1.jpg"
+                         alt="Sana photo 1">
+
+                    <div class="photo-caption">
+                        A favourite picture 🌷
+                    </div>
+
+                </div>
+
+                <div class="photo-card card reveal">
+
+                    <img class="photo"
+                         src="images/kitty-2.jpg"
+                         alt="Sana photo 2">
+
+                    <div class="photo-caption">
+                        Her smile ✨
+                    </div>
+
+                </div>
+
+                <div class="photo-card card reveal">
+
+                    <img class="photo"
+                         src="images/kitty-3.jpg"
+                         alt="Sana photo 3">
+
+                    <div class="photo-caption">
+                        A special memory 🌸
+                    </div>
+
+                </div>
+
+                <div class="photo-card card reveal">
+
+                    <img class="photo"
+                         src="images/kitty-4.jpg"
+                         alt="Sana photo 4">
+
+                    <div class="photo-caption">
+                        Another little memory 🤍
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PERSONAL LETTER -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="letter card reveal">
+
+                <span class="tag">
+                    For Sana, from the heart
+                </span>
+
+                <h2 style="margin-top:18px">
+                    A little letter 💌
+                </h2>
+
+                <p>Dear Sana, 🌷</p>
+
+                <p>
+                    Sometimes I think about how unexpected this friendship was.
+                    We met through Roblox, you started the conversation, and
+                    something small slowly became something meaningful.
+                </p>
+
+                <p>
+                    I never expected someone I met online would become someone
+                    I could trust with my secrets, problems, random thoughts,
+                    and the things I don't always know how to explain.
+                </p>
+
+                <p>
+                    You don't have to pretend everything is okay around me.
+                    If something is bothering you, I'll listen. If you have
+                    a difficult day, you can tell me. And if you need space,
+                    I'll respect that too.
+                </p>
+
+                <p>
+                    I know we're far away, and I wish distance wasn't a thing.
+                    I hope we get to meet one day, sit together, talk for hours,
+                    laugh about silly things, and make memories without a
+                    screen between us.
+                </p>
+
+                <p>
+                    I hope this isn't just a chapter. I hope years from now
+                    we can still talk and remember that everything started
+                    with one conversation in Roblox.
+                </p>
+
+                <p>
+                    <strong>
+                        Wherever life takes you, I'll be cheering for you
+                        and wishing the best for you. You matter, Sana,
+                        and I'm grateful for you. 🤍
+                    </strong>
+                </p>
+
+                <p style="text-align:right;color:#bd3d62;font-weight:bold">
+                    Always here for you,<br>
+                    Vikram🌷
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FINAL WISH -->
+
+    <section id="lastWish">
+
+        <div class="container">
+
+            <div class="wish card reveal">
+
+                <span class="tag">One last wish</span>
+
+                <h2 style="margin-top:20px">
+                    ONE LAST WISH FOR MY GURL 💗🎂
+                </h2>
+
+                <p>
+                    Press the button, close your eyes for a second,
+                    and take all the birthday love with you. 🦋🌷
+                </p>
+
+                <button class="btn" id="wishButton">
+                    Press for your birthday wish 💌
+                </button>
+
+                <div class="wish-message" id="wishMessage" role="status">
+
+                    🎉 ONCE AGAIN HAPPIEST BIRTHDAY MY GURL, SANA!! 🎂💗🦋🌷✨
+
+                    <br><br>
+
+                    May your days be gentle, your heart be happy, and your
+                    dreams find their way to you. I'm always cheering for you!
+                    🤍♾️
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer id="footer" class="hidden">
+
+    <h2>For Sana 🌷</h2>
+
+    <p>
+        A friendship that started unexpectedly and became something worth caring for.
+    </p>
+
+    <strong>
+        May this friendship stay with us for a very long time. ♾️🤍
+    </strong>
+
+</footer>
+
+<script>
+/* ==========================================
+   1. HELPER
+========================================== */
+
+const $ = id => document.getElementById(id);
+
+/* ==========================================
+   2. LOGIN AND WARNING
+========================================== */
+
+function unlock() {
+
+    const password = $("password").value.trim().toLowerCase();
+
+    if (password === "kitty") {
+
+        $("loginError").textContent = "";
+
+        $("warningOverlay").classList.add("active");
+
+        $("password").blur();
+
+    } else {
+
+        $("loginError").textContent =
+            "Wrong password, little detective! Try again 💗";
+
+        $("loginCard").classList.remove("shake");
+
+        void $("loginCard").offsetWidth;
+
+        $("loginCard").classList.add("shake");
+
+        $("password").value = "";
+
+        $("password").focus();
+
+    }
+}
+
+$("loginButton").addEventListener("click", unlock);
+
+$("password").addEventListener("keydown", event => {
+
+    if (event.key === "Enter") {
+        unlock();
+    }
+
+});
+
+$("warningContinue").addEventListener("click", () => {
+
+    $("warningOverlay").classList.remove("active");
+
+    $("loginScreen").classList.add("closed");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+});
+
+/* ==========================================
+   3. CANDLES
+========================================== */
+
+const candles = [...document.querySelectorAll(".candle")];
+
+let blownOut = 0;
+
+candles.forEach((candle, index) => {
+
+    candle.addEventListener("click", () => {
+
+        if (candle.classList.contains("out")) {
+            return;
+        }
+
+        candle.classList.add("out");
+
+        candle.setAttribute(
+            "aria-label",
+            `Candle ${index + 1} blown out`
+        );
+
+        blownOut++;
+
+        if (blownOut < candles.length) {
+
+            const remaining = candles.length - blownOut;
+
+            $("candleHint").textContent =
+                `Awww, Sana! ${remaining} candle${remaining === 1 ? "" : "s"} left. 🕯️💗`;
+
+        } else {
+
+            $("candleHint").textContent =
+                "All the candles are out! Your surprise is here, Sana. 🎂";
+
+            $("candleReveal").classList.add("show");
+
+            setTimeout(() => {
+
+                $("exploreButton").classList.add("show");
+
+            }, 1000);
+
+            releaseBirthdayButterflies();
+
+        }
+
+    });
+
+});
+
+/* ==========================================
+   4. EXPLORE THE WEBSITE
+========================================== */
+
+$("exploreButton").addEventListener("click", () => {
+
+    $("candleScreen").classList.add("hidden");
+
+    $("mainContent").classList.remove("hidden");
+
+    $("footer").classList.remove("hidden");
+
+    initReveals();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+});
+
+function goTo(id) {
+
+    document.getElementById(id).scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+/* ==========================================
+   5. BIRTHDAY COUNTDOWN
+========================================== */
+
+function updateCountdown() {
+
+    const now = new Date();
+
+    let target = new Date(
+        now.getFullYear(),
+        9,
+        24,
+        0,
+        0,
+        0
+    );
+
+    if (now >= target) {
+
+        target = new Date(
+            now.getFullYear() + 1,
+            9,
+            24,
+            0,
+            0,
+            0
+        );
+
+    }
+
+    const diff = Math.max(0, target - now);
+
+    $("days").textContent =
+        Math.floor(diff / 86400000);
+
+    $("hours").textContent =
+        Math.floor((diff % 86400000) / 3600000);
+
+    $("minutes").textContent =
+        Math.floor((diff % 3600000) / 60000);
+
+    $("seconds").textContent =
+        Math.floor((diff % 60000) / 1000);
+
+    if (now.getMonth() === 9 && now.getDate() === 24) {
+
+        $("birthdayNote").textContent =
+            "Happiest birthday, Sana!! 🎂💗";
+
+    } else {
+
+        $("birthdayNote").textContent =
+            "Every second brings us closer to your special day. 🌷";
+
+    }
+
+}
+
+updateCountdown();
+
+setInterval(updateCountdown, 1000);
+
+/* ==========================================
+   6. SCROLL REVEAL
+========================================== */
+
+let revealObserver;
+
+function initReveals() {
+
+    const items = document.querySelectorAll(
+        "#mainContent .reveal"
+    );
+
+    if (!("IntersectionObserver" in window)) {
+
+        items.forEach(item => {
+            item.classList.add("visible");
+        });
+
+        return;
+
+    }
+
+    if (revealObserver) {
+        revealObserver.disconnect();
+    }
+
+    revealObserver = new IntersectionObserver(entries => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("visible");
+
+                revealObserver.unobserve(entry.target);
+
+            }
+
+        });
+
+    }, {
+        threshold: 0.08
+    });
+
+    items.forEach(item => {
+        revealObserver.observe(item);
+    });
+
+}
+
+/* ==========================================
+   7. PHOTO FALLBACKS
+========================================== */
+
+function makePlaceholder(number) {
+
+    const svg = `
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="800" height="600">
+
+            <defs>
+                <linearGradient id="g">
+                    <stop stop-color="#f8dce7"/>
+                    <stop offset="1" stop-color="#e7ddf5"/>
+                </linearGradient>
+            </defs>
+
+            <rect width="100%" height="100%" fill="url(#g)"/>
+
+            <text x="50%" y="47%"
+                  text-anchor="middle"
+                  font-size="72"
+                  fill="#a64b69">♡</text>
+
+            <text x="50%" y="62%"
+                  text-anchor="middle"
+                  font-family="Georgia"
+                  font-size="30"
+                  fill="#7b4960">Sana Photo ${number}</text>
+
+        </svg>
+    `;
+
+    return "data:image/svg+xml;charset=UTF-8," +
+        encodeURIComponent(svg);
+
+}
+
+document.querySelectorAll(".photo").forEach((img, index) => {
+
+    img.addEventListener("error", () => {
+
+        if (!img.dataset.fallback) {
+
+            img.dataset.fallback = "1";
+
+            img.src = makePlaceholder(index + 1);
+
+        }
+
+    });
+
+});
+
+/* ==========================================
+   8. CONTINUOUS BUTTERFLIES
+========================================== */
+
+const butterflyLayer = $("butterflies");
+
+const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+).matches;
+
+if (!reducedMotion) {
+
+    for (let i = 0; i < 12; i++) {
+
+        const butterfly = document.createElement("div");
+
+        butterfly.className = "butterfly";
+
+        butterfly.style.setProperty(
+            "--top",
+            (4 + Math.random() * 88) + "%"
+        );
+
+        butterfly.style.setProperty(
+            "--size",
+            (16 + Math.random() * 22) + "px"
+        );
+
+        butterfly.style.setProperty(
+            "--duration",
+            (13 + Math.random() * 17) + "s"
+        );
+
+        butterfly.style.setProperty(
+            "--delay",
+            (-Math.random() * 25) + "s"
+        );
+
+        butterfly.innerHTML = "<span>🦋</span>";
+
+        butterflyLayer.appendChild(butterfly);
+
+    }
+
+}
+
+/* ==========================================
+   9. BUTTERFLY AND HEART BURST
+========================================== */
+
+function createBurst(originX, originY, amount = 35) {
+
+    const symbols = [
+        "🦋", "💗", "💕", "🌷", "✨", "🎀", "🤍"
+    ];
+
+    for (let i = 0; i < amount; i++) {
+
+        const item = document.createElement("span");
+
+        item.className = "burst";
+
+        item.textContent =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+        item.style.left = originX + "px";
+
+        item.style.top = originY + "px";
+
+        item.style.fontSize =
+            (18 + Math.random() * 20) + "px";
+
+        item.style.setProperty(
+            "--duration",
+            (2 + Math.random() * 2) + "s"
+        );
+
+        item.style.setProperty(
+            "--x1",
+            ((Math.random() - 0.5) * 180) + "px"
+        );
+
+        item.style.setProperty(
+            "--y1",
+            ((Math.random() - 0.5) * 150) + "px"
+        );
+
+        item.style.setProperty(
+            "--x2",
+            ((Math.random() - 0.5) * window.innerWidth) + "px"
+        );
+
+        item.style.setProperty(
+            "--y2",
+            (-100 - Math.random() * window.innerHeight * 0.65) + "px"
+        );
+
+        butterflyLayer.appendChild(item);
+
+        item.addEventListener("animationend", () => {
+            item.remove();
+        });
+
+    }
+
+}
+
+function releaseBirthdayButterflies() {
+
+    createBurst(
+        window.innerWidth / 2,
+        window.innerHeight * 0.58,
+        35
+    );
+
+}
+
+/* ==========================================
+   10. FINAL BIRTHDAY WISH
+========================================== */
+
+$("wishButton").addEventListener("click", () => {
+
+    $("wishMessage").classList.add("show");
+
+    $("wishButton").textContent =
+        "Birthday love sent! 💗";
+
+    const message = $("wishMessage");
+
+    const rect = message.getBoundingClientRect();
+
+    createBurst(
+        rect.left + rect.width / 2,
+        rect.top + rect.height / 2,
+        65
+    );
+
+    setTimeout(() => {
+
+        createBurst(
+            rect.left + rect.width / 2,
+            rect.top + rect.height / 2,
+            45
+        );
+
+    }, 600);
+
+});
+</script>
+
+</body>
+</html>
